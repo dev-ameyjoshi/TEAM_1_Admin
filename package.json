@@ -1,0 +1,25 @@
+{
+  "name": "TEAM_1_Admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-ameyjoshi/TEAM_1_Admin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-ameyjoshi/TEAM_1_Admin/issues"
+  },
+  "homepage": "https://github.com/dev-ameyjoshi/TEAM_1_Admin#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "nodemon": "^2.0.12"
+  }
+}
