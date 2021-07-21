@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="card">
+        <h1 class="title">Create an Account</h1>
+        <form action="/auth/signUp" method="POST" class="formInputs">
+            {{!-- <input type="text" placeholder="name"> --}}
+            {{> input label="Email"}}
+            {{> input label="Password"}}
+            {{> input label="Confirm Password"}}
+            <div class="submitAction">
+                <button type="submit" class="signUpBtn">Sign Up</button>
+            </div>
+        </form>
+        <div class="switch">
+            <p>Already have an account? <a>Log in.</a></p>
+        </div>
+    </div>
+</div>
