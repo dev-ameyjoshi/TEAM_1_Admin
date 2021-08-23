@@ -4,13 +4,14 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 input[type="text"] {
   padding: 5px 10px;
   border-radius: 4px;
   border: 1px solid dimgray;
-}
-input[type="text"]:focus {
-  border: 1px solid red;
 }
 
 .container {
@@ -25,6 +26,7 @@ input[type="text"]:focus {
 .card {
   background-color: white;
   box-shadow: 0px 0px 40px -10px rgb(110, 109, 109);
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,9 +35,16 @@ input[type="text"]:focus {
   align-items: center;
 }
 
+.title-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .title {
   font-size: 2.2rem;
   margin-top: 10px;
+  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -60,8 +69,9 @@ input[type="text"]:focus {
 
 .signUpBtn {
   border-radius: 8px;
-  padding: 8px 25px;
-  font-size: 1.3rem;
+  padding: 8px 20px;
+  margin-top: 10px;
+  font-size: 1.1rem;
   border-style: none;
   background-color: #3f6bdc;
   color: white;
@@ -76,4 +86,33 @@ input[type="text"]:focus {
 .signUpBtn:hover {
   cursor: pointer;
   background-color: #638aed;
+}
+
+.switch {
+  font-size: 0.85rem;
+  margin-top: 20px;
+}
+
+.switch a {
+  color: #3f6bdc;
+  font-weight: bold;
+}
+
+.switch a:visited {
+  color: #3f6bdc;
+  font-style: none;
+}
+
+/* errors partial */
+.error-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #ff969c;
+  border-top: 2px solid #ff4953;
+  border-bottom: 2px solid #ff4953;
+  padding: 5px;
+}
+
+.error-message {
+  margin: 0;
 }
