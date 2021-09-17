@@ -1,5 +1,5 @@
 {
-  "name": "TEAM_1_Admin",
+  "name": "tea_1_admin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -25,5 +25,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.3",
     "nodemon": "^2.0.12"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5"
   }
 }

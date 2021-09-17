@@ -1,9 +1,10 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const path = require('path');
 const handlebars = require("express-handlebars");
 require("./Models/User");
+require("./Models/Event");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const keys = require("./config/keys");
 const requireAuth = require("./Middlewares/requireAuth");
 const app = express();
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 5000;
 mongoose.Promise = global.Promise;
 
 //handlebars stuff
+app.use(cors());
 app.set('view engine', "hbs");
 app.engine("hbs", handlebars({
     layoutsDir: __dirname + '/views/layouts',
@@ -39,9 +41,9 @@ mongoose.connect(keys.MongoURI, {
     console.error(e);
 })
 
-// app.use("/auth", authRoutes);
+//connecting route handlers
 require("./Routes/authRoutes")(app);
-
+require("./Routes/eventRoutes")(app);
 
 //---handlebars view routes---
 
