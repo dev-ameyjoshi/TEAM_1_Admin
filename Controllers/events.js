@@ -47,7 +47,7 @@ const updateEvent = async (req, res) => {
             updatedAt: new Date()
         }
 
-        updatedEvent = await Event.findOneAndUpdate({title}, updatedEvent);
+        updatedEvent = await Event.findOneAndUpdate({title}, updatedEvent, {new: true});
         res.status(200).json(updatedEvent);
 
     } catch (e) {
@@ -56,5 +56,19 @@ const updateEvent = async (req, res) => {
     }
 }
 
+const deleteEvent = (req, res) => {
+    const {id} = req.body;
+    try {
+        await Event.findByIdAndDelete(id);
+        res.status(200).json({message: "Event has been deleted"})        
+    } catch (e) {
+        console.error(e);
+        res.status(300).json({message: "something went wrong"});
+    }
+}
+
+
 exports.getEvents = getEvents;
 exports.newEvent = newEvent;
+exports.deleteEvent = deleteEvent;
+exports.updateEvent = updateEvent;

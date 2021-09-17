@@ -3,6 +3,7 @@ const path = require('path');
 const handlebars = require("express-handlebars");
 require("./Models/User");
 require("./Models/Event");
+require("./Models/Member");
 const mongoose = require("mongoose");
 const cors = require('cors');
 const keys = require("./config/keys");
@@ -22,14 +23,11 @@ app.engine("hbs", handlebars({
     partialsDir:path.join(__dirname, '/views/partials')
 }))
 // app.use(express.static(__dirname + '/public'));
-app.use(express.static(path.join(__dirname, '/public')))
 // app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '/public')))
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
 
 mongoose.connect(keys.MongoURI, {
     useNewUrlParser: true,
@@ -44,6 +42,7 @@ mongoose.connect(keys.MongoURI, {
 //connecting route handlers
 require("./Routes/authRoutes")(app);
 require("./Routes/eventRoutes")(app);
+require("./Routes/memberRoutes")(app);
 
 //---handlebars view routes---
 
