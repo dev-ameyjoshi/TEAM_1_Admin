@@ -1,4 +1,4 @@
-import {
+const {
     createMember,
     getAllMembers,
     dscLead,
@@ -7,10 +7,11 @@ import {
     dscAndroidTeam,
     dscFlutterTeam,
     dscMultimediaTeam,
+    dscProjectManagers,
     dscManagement,
     deleteMember,
     updateMember
-} from '../Controllers/members';
+} = require('../Controllers/members');
 
 module.exports = (app) => {
     app.post('/team/newMember', createMember);
@@ -22,6 +23,7 @@ module.exports = (app) => {
     app.get('/team/dscFlutterTeam', dscFlutterTeam);
     app.get('/team/dscMultimediaTeam', dscMultimediaTeam);
     app.get('/team/dscManagement', dscManagement);
+    app.get('/team/projectManagers', dscProjectManagers);
     app.delete('/team/deleteMember', deleteMember),
     app.put('/team/updateMember', updateMember)
 }

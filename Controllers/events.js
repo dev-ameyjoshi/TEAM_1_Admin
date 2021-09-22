@@ -7,12 +7,18 @@ const newEvent = async (req, res) => {
         const existingEvent = await Event.findOne({title});
         if(existingEvent) throw "event already exists";
 
+        // const image = {
+        //     data: req.file.buffer,
+        //     contentType: req.file.mimetype
+        // }
         let newEvent = await new Event({
             title, 
             description,
             status,
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            image: req.file.buffer
         }).save();
+
         console.log(newEvent);
         res.status(200).json({newEvent});
     } catch (e) {
@@ -23,7 +29,7 @@ const newEvent = async (req, res) => {
 
 const getEvents = async (req, res) => {
     try {
-        const events = await Events.find();
+        const events = await Event.find();
         if(!events) throw "There are no events";
 
         res.status(200).json({events});
@@ -56,7 +62,7 @@ const updateEvent = async (req, res) => {
     }
 }
 
-const deleteEvent = (req, res) => {
+const deleteEvent = async (req, res) => {
     const {id} = req.body;
     try {
         await Event.findByIdAndDelete(id);

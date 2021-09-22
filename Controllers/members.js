@@ -1,7 +1,7 @@
-import {model} from 'mongoose';
-const Member = model('events');
+const {model} = require('mongoose');
+const Member = model('members');
 
-const createMember = (req, res) => {
+const createMember = async (req, res) => {
     const {firstName, lastName, linkedInProfile, role, specialRole} = req.body;
     try {
         let newMember = await new Member({
@@ -12,7 +12,7 @@ const createMember = (req, res) => {
             specialRole: (specialRole)? specialRole : null
         }).save();
 
-        console.log(mewMember);
+        console.log(newMember);
         res.status(200).json(newMember);
 
     } catch (e) {
@@ -21,7 +21,7 @@ const createMember = (req, res) => {
     }
 }
 
-const getAllMembers = (req, res) => {
+const getAllMembers = async (req, res) => {
     try {
         const allMembers = await Member.find();
         res.status(200).json(allMembers);
@@ -31,7 +31,7 @@ const getAllMembers = (req, res) => {
     }
 }
 
-const dscLead = (req, res) => {
+const dscLead = async (req, res) => {
     try {
         const lead = await Member.findOne({specialRole: "head"});
         res.status(200).json(lead);
@@ -41,7 +41,7 @@ const dscLead = (req, res) => {
     }
 }
 
-const dscHeads = (req, res) => {
+const dscHeads = async (req, res) => {
     try {
         const heads = await Member.find({specialRole:"head"});
         res.status(200).json({heads: heads});
@@ -52,16 +52,18 @@ const dscHeads = (req, res) => {
 }
 
 
-const dscProjectManagers = (req, res) => {
+const dscProjectManagers = async (req, res) => {
     try {
         const projectManagers = await Member.find({specialRole: "project manager"});
+        console.log(projectManagers);
+        res.status(200).json({projectManagers: projectManagers});
     } catch (e) {
         console.error(e);
         res.staus(300).json({message: "something went wrong"});
     }
 }
 
-const dscWebTeam = (req, res) => {
+const dscWebTeam = async (req, res) => {
     try {
         const webTeam = await Member.find({role: "web developer"})        
         res.status(200).json({webTeam: webTeam});
@@ -70,7 +72,7 @@ const dscWebTeam = (req, res) => {
         res.staus(300).json({message: "something went wrong"});
     }
 }
-const dscAndroidTeam = (req, res) => {
+const dscAndroidTeam = async (req, res) => {
     try {
         const androidTeam = await Member.find({role: "android developer"});
         res.status(200).json({androidTeam: androidTeam});
@@ -80,7 +82,7 @@ const dscAndroidTeam = (req, res) => {
         res.staus(300).json({message: "something went wrong"});
     }
 }
-const dscFLutterTeam = (req, res) => {
+const dscFlutterTeam = async (req, res) => {
     try {
         const flutterTeam = await Member.find({role: "flutter developer"});
         res.status(200).json({flutterTeam: flutterTeam});
@@ -89,7 +91,7 @@ const dscFLutterTeam = (req, res) => {
         res.staus(300).json({message: "something went wrong"});
     }
 }
-const dscMultimediaTeam = (req, res) => {
+const dscMultimediaTeam = async (req, res) => {
     try {
         const multimediaTeam = await Member.find({role: "multi media"})        
         res.status(200).json({multimediaTeam: multimediaTeam});
@@ -99,7 +101,7 @@ const dscMultimediaTeam = (req, res) => {
         res.staus(300).json({message: "something went wrong"});
     }
 }
-const dscManagement = (req, res) => {
+const dscManagement = async (req, res) => {
     try {
         const managementTeam = await Member.find({role: "manager"})        
         res.status(200).json({managementTeam: managementTeam});
@@ -110,7 +112,7 @@ const dscManagement = (req, res) => {
     }
 }
 
-const deleteMember = (req, res) => {
+const deleteMember = async (req, res) => {
     const {id} = req.body;
     try {
         await Member.findByIdAndDelete(id);
@@ -122,7 +124,7 @@ const deleteMember = (req, res) => {
     }
 }
 
-const updateMember = (req, res) => {
+const updateMember = async (req, res) => {
     const {id, firstName, lastName, linkedInProfile, role, specialRole} = req.body;
     try {
         let updatedMember = await Member.findByIdAndUpdate({
@@ -139,14 +141,29 @@ const updateMember = (req, res) => {
     }
 }
 
-module.createMemeber = createMember;
-module.getAllMembers = getAllMembers;
-module.dscLead = dscLead;
-module.dscHeads = dscHeads;
-module.dscWebTeam = dscWebTeam;
-module.dscAndroidTeam = dscAndroidTeam;
-module.dscFLutterTeam = dscFlutterTeam;
-module.dscMultimediaTeam = dscMultimediaTeam;
-module.dscManagement = dscManagement;
-module.deleteMember = deleteMember;
-module.updateMember = updateMember;
+// module.createMemeber = createMember;
+// module.getAllMembers = getAllMembers;
+// module.dscLead = dscLead;
+// module.dscHeads = dscHeads;
+// module.dscWebTeam = dscWebTeam;
+// module.dscAndroidTeam = dscAndroidTeam;
+// module.dscFLutterTeam = dscFlutterTeam;
+// module.dscMultimediaTeam = dscMultimediaTeam;
+// module.dscManagement = dscManagement;
+// module.deleteMember = deleteMember;
+// module.updateMember = updateMember;
+
+module.exports = {
+    createMember,
+    getAllMembers,
+    dscLead,
+    dscHeads,
+    dscWebTeam,
+    dscAndroidTeam,
+    dscFlutterTeam,
+    dscManagement,
+    dscMultimediaTeam,
+    dscProjectManagers,
+    deleteMember,
+    updateMember
+}

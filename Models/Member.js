@@ -9,7 +9,7 @@
 // ----Flutter Developer
 // ----Multimedia
 // ----Management
-import {model, Schema} from 'mongoose';
+const {model, Schema} = require('mongoose');
 
 const memberSchema = new Schema({
     firstName: {type: String, required: true},
