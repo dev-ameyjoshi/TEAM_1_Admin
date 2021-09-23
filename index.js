@@ -20,12 +20,13 @@ app.engine("hbs", handlebars({
     layoutsDir: __dirname + '/views/layouts',
     extname: 'hbs',
     defaultLayout: 'planB',
-    partialsDir:path.join(__dirname, '/views/partials')
+    partialsDir: path.join(__dirname, '/views/partials')
 }))
 // app.use(express.static(__dirname + '/public'));
 // app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, '/public')))
-app.use(express.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, '/public/assets')))
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
@@ -48,25 +49,47 @@ require("./Routes/memberRoutes")(app);
 
 //landing page
 app.get("/", (req, res) => {
-    res.render("main", {layout: "index"});
+    res.render("main", { layout: "index" });
 });
 //signup page
 app.get("/SignUp", (req, res) => {
-    res.render("signUp", {layout: "index"});
+    res.render("signUp", { layout: "index" });
 });
 //log in page
 app.get("/LogIn", (req, res) => {
-    res.render("logIn", {layout: "index", errorsExist: false});
+    res.render("logIn", { layout: "index", errorsExist: false });
 });
 //dashboard
 app.get("/dashboard", (req, res) => {
     // console.log(req.userId);
-    try {
-        res.render("dashboard", {layout: "index"});
-    } catch (error) {
+    try
+    {
+        res.render("dashboard", { layout: "index" });
+    } catch (error)
+    {
         console.error(error);
     }
 });
+
+app.get("/team", (req, res) => {
+    try
+    {
+        res.render("members", { layout: "index" });
+    } catch (e)
+    {
+        console.error(error);
+    }
+})
+
+app.get("/eventsPage", (req, res) => {
+    try
+    {
+        res.render("events", { layout: "index" });
+    } catch (e)
+    {
+        console.error(error);
+    }
+})
 
 
 

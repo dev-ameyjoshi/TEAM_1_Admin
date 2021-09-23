@@ -1,0 +1,146 @@
+{{> navbar}}
+<!-- Events: -->
+<section>
+    <div class="leftBox">
+        <div class="content">
+            <h1>
+                Events and Shows
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ut autem quasi hic quos sint, doloremque
+                repellendus sapiente quae numquam, mollitia consectetur? Provident corrupti tenetur harum iure vero
+                repellendus saepe!lorem
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ut autem quasi hic quos sint, doloremque
+                repellendus sapiente quae numquam, mollitia consectetur? Provident corrupti tenetur harum iure vero
+                repellendus saepe!lorem
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ut autem quasi hic quos sint, doloremque
+                repellendus sapiente quae numquam, mollitia consectetur? Provident corrupti tenetur harum iure vero
+                repellendus saepe!lorem
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ut autem quasi hic quos sint, doloremque
+                repellendus sapiente quae numquam, mollitia consectetur? Provident corrupti tenetur harum iure vero
+                repellendus saepe!lorem
+            </p>
+        </div>
+    </div>
+
+    <div class="events">
+        <ul>
+            {{#each events}}
+                <li>
+                    <div class="time">
+                        <h2>
+                            15 <br><span>March</span>
+                        </h2>
+                    </div>
+                    <div class="details">
+                        <h3>
+                            {{this.title}}
+                        </h3>
+                        <p>
+                            {{this.description}}
+                        </p>
+
+                        <a href="#">View Details</a>
+                    </div>
+                    <div style="clear: both;"></div>
+                    {{!-- {{this}} --}}
+                </li>
+            {{/each}}
+            {{!-- <li>
+                <div class="time">
+                    <h2>
+                        15 <br><span>March</span>
+                    </h2>
+                </div>
+                <div class="details">
+                    <h3>
+                        Where is the event happening?
+                    </h3>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus eum velit ut voluptatibus
+                        facilis tempore, nobis atque magni maiores accusamus neque molestiae provident odio delectus
+                        temporibus nostrum aut vitae distinctio.
+                    </p>
+
+                    <a href="#">View Details</a>
+                </div>
+                <div style="clear: both;"></div>
+            </li>
+
+            <li>
+                <div class="time">
+                    <h2>
+                        27 <br><span>May</span>
+                    </h2>
+                </div>
+                <div class="details">
+                    <h3>
+                        Where is the event happening?
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ad, voluptate eaque sint
+                        repellendus accusamus quasi obcaecati magni quibusdam nihil. Eligendi odio assumenda sed, hic
+                        pariatur quod quibusdam sit aspernatur.
+                    </p>
+                    <a href="#">View Details</a>
+                </div>
+                <div style="clear:both;"></div>
+            </li>
+
+            <li>
+                <div class="time">
+                    <h2>
+                        12 <br><span>August</span>
+                    </h2>
+                </div>
+                <div class="details">
+                    <h3>
+                        Where is the event happening?
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe iste consectetur aperiam dicta
+                        facilis, dolores rem vitae animi harum, voluptates optio recusandae ea dignissimos labore
+                        architecto error perspiciatis vero? Deserunt!
+                    </p>
+
+                    <a href="#">View Details</a>
+                </div>
+                <div style="clear:both;"></div>
+            </li> --}}
+        </ul>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-header">
+        D.S.C. VIT PUNE
+    </div>
+    <ul class="social-links lists-non-bullet">
+        <img class="footer-img" src="Portfolio.svg">
+        <li class="list-item-inline">
+            <a class="link" href="">
+
+                <i class="socicon"><img src="github.svg"></i></a>
+        </li>
+        </li>
+        <li class="list-item-inline">
+            <a class="link" href="">
+
+                <i class="socicon"><img src="linkedin.svg"></i></a>
+        </li>
+        </li>
+        <li class="list-item-inline">
+            <a class="link" href="">
+
+                <i class="socicon"><img src="twitter.svg"></i></a>
+        </li>
+        </li>
+        <hr>
+        <div class="bottom">
+            Mission: Connect | Learn | Grow
+        </div>
+    </ul>
+</footer>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
