@@ -1,28 +1,42 @@
-<div class="container">
-    <div class="card">
-        <h1 class="title">Sign In</h1>
-        {{#if errorsExist}}
-            {{> error errorMessage=errors}}
+<div class="container-center">
+    {{!-- <div class="card"> --}}
+    <h1 class="title">Sign In</h1>
+    <div class="flash-container">
+        {{#if error_msg}}
+            <div class="error-flash">
+                {{error_msg}}
+            </div>
         {{/if}}
-        {{!-- <p>{{errors}}</p> --}}
-        <form id="loginForm" class="formInputs">
-            {{!-- {{> input label="Email" name="email"}}
-            {{> input label="Password" name="password"}} --}}
-            <div class="input">
-                <p class="label">Email</p>
-                <input type="text" name="email"/>
+        {{#if success_msg}}
+            <div class="success-flash">
+                {{success_msg}}
             </div>
-            <div class="input">
-                <p class="label">Password</p>
-                <input type="text" name="password"/>
+        {{/if}}
+        {{#if error}}
+            <div class="error-flash">
+                {{error}}
             </div>
-            
-            <div class="submitAction">
-                <button type="submit" class="signUpBtn">Log In</button>
-            </div>
-        </form>
-        <div class="switch">
-            <p>Don't have an account? <a href="/signUp">Sign Up.</a></p>
-        </div>
+        {{/if}}
     </div>
+    {{!-- <p>{{errors}}</p> --}}
+    <form id="loginForm" class="formInputs" method="POST" action="/auth/login">
+        {{!-- {{> input label="Email" name="email"}}
+            {{> input label="Password" name="password"}} --}}
+        <div class="input">
+            <p class="label">Email</p>
+            <input type="text" name="email" />
+        </div>
+        <div class="input">
+            <p class="label">Password</p>
+            <input type="password" name="password" />
+        </div>
+
+        <div class="submitAction">
+            <button type="submit" class="signUpBtn">Log In</button>
+        </div>
+    </form>
+    <div class="switch">
+        <p>Don't have an account? <a class="link-secondary" href="/signUp">Sign Up.</a></p>
+    </div>
+    {{!-- </div> --}}
 </div>

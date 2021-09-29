@@ -134,21 +134,17 @@ input[type="text"] {
       /* overflow-x:hidden ; */
           /* background-color: #333; */
           background-color: #333;
-         
-          
-  
-  
-         
 }
 /* Card component for members */
 .cardbody{
     background-color: #333;
     /* height: 100vh; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     margin: 0;
     padding: 1.3rem;
+    /* max-width: ; */
     font-family: 'Zilla Slab', serif;
 }
 .newcontainer .card {
@@ -546,8 +542,12 @@ padding: 0rem 1rem;
 
 
 .container-center {
-    max-width: 600px;
+    /* max-width: 600px; */
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color:white;
 }
  .container-align{
@@ -573,10 +573,11 @@ padding: 0rem 1rem;
 }
 
 .link-secondary {
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     border-radius: 0.6rem;
-    border: 1px solid var(--primary-color);
+    /* border: 1px solid var(--primary-color); */
     color: white;
+    padding: 1reml
 }
 
 
@@ -851,4 +852,60 @@ section .events ul li .details a:hover {
       display: block;
       margin-bottom: 20px;
     }
+}
+
+.flash-container{
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.error-flash{
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #c7683c;
+    border-radius: 1rem;
+
+}
+.success-flash{
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #38ae3c;
+    border-radius: 1rem;
+}
+
+.formInputs {
+    padding: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 15rem;
+}
+
+.formInputs input {
+    width: 100%;
+}
+
+.switch{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.submitAction {
+    /* margin: 1.3rem; */
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.signUpBtn {
+    background-color: #3b76eb;
+    padding: 0.4rem 1.2rem;
+    border-radius: 0.3rem;
+    border-style: none;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+}
+.signUpBtn:hover {
+    background-color: #6294f7;
 }

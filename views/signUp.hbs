@@ -1,40 +1,47 @@
-<div class="container">
-    <div class="card">
+<div class="container-center">
+    <div class="title-container">
+        <h1 class="title">Create an Account</h1>
+    </div>
+    <div class="flash-container">
+        {{#if error_msg}}
+            <div class="error-flash">
+                {{error_msg}}
+            </div>
+        {{/if}}
+        {{#if error}}
+            <div class="error-flash">
+                {{error}}
+            </div>
+        {{/if}}
+    </div>
+    <form action="/auth/signUp" method="POST" class="formInputs" id="authForm">
         <div class="title-container">
-            <h1 class="title">Create an Account</h1>
+            <div class="input">
+                <p class="label">First Name</p>
+                <input type="text" name="firstName" />
+            </div>
+            <div class="input">
+                <p class="label">Last Name</p>
+                <input type="text" name="lastName" />
+            </div>
         </div>
-        <form action="/auth/signUp" method="POST" class="formInputs" id="authForm">
-            <div class="title-container">
-                <div class="input">
-                    <p class="label">First Name</p>
-                    <input type="text" name="firstName"/>
-                </div>
-                <div class="input">
-                    <p class="label">Last Name</p>
-                    <input type="text" name="lastName"/>
-                </div>
-            </div>
-            <div class="input">
-                <p class="label">Email</p>
-                <input type="text" name="email"/>
-            </div>
-            <div class="input">
-                <p class="label">Passsword</p>
-                <input type="text" name="password"/>
-            </div>
-            <div class="input">
-                <p class="label">Confirm Password</p>
-                <input type="text" name="confirmPassword"/>
-            </div>
-            {{!-- {{> input label="Email" name="email"}}
-            {{> input label="Password" name="password"}}
-            {{> input label="Confirm Password" name="confirmPassword"}} --}}
-            <div class="submitAction">
-                <button type="submit" class="signUpBtn">Sign Up</button>
-            </div>
-        </form>
-        <div class="switch">
-            <p>Already have an account? <a href="/logIn">Log in.</a></p>
+        <div class="input">
+            <p class="label">Email</p>
+            <input type="text" name="email" />
         </div>
+        <div class="input">
+            <p class="label">Passsword</p>
+            <input type="password" name="password" />
+        </div>
+        <div class="input">
+            <p class="label">Confirm Password</p>
+            <input type="password" name="confirmPassword" />
+        </div>
+        <div class="submitAction">
+            <button type="submit" class="signUpBtn">Sign Up</button>
+        </div>
+    </form>
+    <div class="switch">
+        <p>Already have an account? <a class="link-secondary" href="/logIn">Log in.</a></p>
     </div>
 </div>

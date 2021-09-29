@@ -1,22 +1,22 @@
-const jwt = require("jsonwebtoken");
-const keys = require("../config/keys");
 
-module.exports = (req, res, next) => {
-    try {
-        let token;
-        if(req.headers.authorization){
-            token = req.headers.authorization.split(" ")[1];
+module.exports = {
+    restrictUnauth: (req, res, next) => {
+        if (!req.isAuthenticated())
+        {
+            req.flash("error_msg", "You need to be logged in");
+            res.redirect("/login");
+        } else
+        {
+            next();
         }
-        let decodedToken;
-        if(token){
-            decodedToken = jwt.verify(token, keys.jwtSecretKey);
-            req.userId = decodedToken.id;
-        }else{
-            return res.status(401).send("You must be logged in");
+    },
+    forwardAuth: (req, res, next) => {
+        if (req.isAuthenticated())
+        {
+            return res.redirect("dashboard");
+        } else
+        {
+            next();
         }
-        next();
-    } catch (e) {
-        console.log(e);
-        next();
     }
 }
