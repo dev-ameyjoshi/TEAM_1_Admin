@@ -55,10 +55,27 @@ app.get("/", (req, res) => {
 app.get("/SignUp", (req, res) => {
     res.render("signUp", { layout: "index" });
 });
-//log in page
-app.get("/LogIn", (req, res) => {
-    res.render("logIn", { layout: "index", errorsExist: false });
+
+app.get("/Team", (req, res) => {
+    res.render("team", { layout: "index" });
 });
+
+app.get("/Adduser", (req, res) => {
+    res.render("adduser", { layout: "index" });
+});
+
+app.get("/Events", (req, res) => {
+    res.render("events", { layout: "index" });
+});
+//log in page
+app.get("/Login", (req, res) => {
+    res.render("login", { layout: "index" });
+});
+
+
+
+
+
 //dashboard
 app.get("/dashboard", (req, res) => {
     // console.log(req.userId);
