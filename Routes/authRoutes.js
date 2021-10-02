@@ -1,6 +1,5 @@
-const express = require("express");
-const router = express.Router();
-const {signUp, logIn, getProfiles} = require("../Controllers/auth");
+const { signUp, logIn, logOut } = require("../Controllers/auth");
+const { forwardAuth } = require('../Middlewares/requireAuth');
 
 
 // router.use(express.static('../public'));
@@ -17,7 +16,8 @@ const {signUp, logIn, getProfiles} = require("../Controllers/auth");
 
 // module.exports = router;
 module.exports = (app) => {
-    app.post("/auth/signUp", signUp);
-    app.post("/auth/logIn", logIn);
-    app.get("/auth/allUsers", getProfiles);
+    app.post("/auth/signup", signUp);
+    app.post("/auth/login", logIn);
+    app.get("/auth/logout", logOut);
+    // app.get("/auth/allUsers", getProfiles);
 }
