@@ -89,9 +89,9 @@ app.get("/Adduser", (req, res) => {
 app.get("/Events", (req, res) => {
     res.render("events", { layout: "index" });
 });
-//log in page
-app.get("/Login", (req, res) => {
-    res.render("login", { layout: "index" });
+// log in page
+app.get("/LogIn", (req, res) => {
+    res.render("logIn", { layout: "index" });
 });
 
 
@@ -129,6 +129,7 @@ app.get("/eventsPage", (req, res) => {
         console.error(error);
     }
 })
+
 
 
 
